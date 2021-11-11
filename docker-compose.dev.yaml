@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  harumax-frontend-daily-item-insights:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
+    - ./src:/app/src
+    tty: true
