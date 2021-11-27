@@ -1,4 +1,7 @@
+import { dynamic } from './dynamic'
 export const environment = {
   production: true,
-  environment: "production"
+  environment: "production",
+  identityServiceURL: '',
+  dynamic,
 };

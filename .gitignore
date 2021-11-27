@@ -44,3 +44,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+.env
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
+src/environments/dynamic.ts

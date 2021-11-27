@@ -1,0 +1,12 @@
+<p>auth works!</p>
+<a href="{{ identityServiceURL }}">
+  <button>Sign In</button>
+</a>
+<p>{{ authStatus$ | async }}</p>
+<p>{{ loggedIn$ | async }}</p>
+<p>{{ id }}</p>
+
+<p>{{ userName }}</p>
+<a routerLink="/">
+  <button>home</button>
+</a>
