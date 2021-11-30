@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "haumax-frontend-daily-item-insights": {
+    "katten-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/haumax-frontend-daily-item-insights",
+            "outputPath": "dist/katten-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -86,13 +86,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "haumax-frontend-daily-item-insights:build:production"
+              "browserTarget": "katten-frontend:build:production"
             },
             "development": {
-              "browserTarget": "haumax-frontend-daily-item-insights:build:development"
+              "browserTarget": "katten-frontend:build:development"
             },
             "local": {
-              "browserTarget": "haumax-frontend-daily-item-insights:build:local"
+              "browserTarget": "katten-frontend:build:local"
             }
           },
           "defaultConfiguration": "development"
@@ -100,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "haumax-frontend-daily-item-insights:build"
+            "browserTarget": "katten-frontend:build"
           }
         },
         "test": {
@@ -133,7 +133,7 @@
       }
     }
   },
-  "defaultProject": "haumax-frontend-daily-item-insights",
+  "defaultProject": "katten-frontend",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }
