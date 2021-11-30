@@ -1,11 +1,11 @@
 version: "3"
 
 services:
-  harumax-frontend-daily-item-insights:
+  katten-frontend:
     build:
       context: .
       dockerfile: Dockerfile.dev
     ports:
       - "4200:4200"
-    - ./src:/app/src
+      - ./src:/app/src
     tty: true

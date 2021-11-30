@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  harumax-frontend-daily-item-insights:
+  katten-frontend:
     build:
       context: .
       dockerfile: Dockerfile
