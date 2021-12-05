@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { Observable } from 'rxjs'
+import { map, Observable } from 'rxjs'
 import { AuthService } from 'src/app/services/auth.service'
 import { environment } from 'src/environments/environment'
 
@@ -19,13 +19,9 @@ export class AuthComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    // this.authStatus$ = this.authService.authStatus$
-    this.loggedIn$ = this.authService.isLoggedIn$
-    this.id = this.authService.getIdToken
-    // this.userName = this.authService.userCredential?.user.displayName
-    console.log(this.id)
   }
 
   public onClick() {
+
   }
 }

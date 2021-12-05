@@ -2,7 +2,15 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Auth, signInWithCustomToken, UserCredential } from '@angular/fire/auth'
 import { Router } from '@angular/router'
-import { map, merge, mergeMap, Observable, shareReplay, Subject, tap } from 'rxjs'
+import {
+  map,
+  merge,
+  mergeMap,
+  Observable,
+  shareReplay,
+  Subject,
+  tap,
+} from 'rxjs'
 import { AuthStatus } from 'src'
 import { environment } from 'src/environments/environment'
 
@@ -23,19 +31,7 @@ export class AuthService {
     private auth: Auth,
     private router: Router
   ) {
-    this.authStatus$ = this.http
-      .get(`${environment.identityServiceURL}/status`, {
-        withCredentials: true,
-      })
-      .pipe(
-        map((response: any) => {
-          const status = response.status === 'true' ? true : false
-          const customToken = response.customToken
-          return { status, customToken }
-        }),
-        shareReplay(1)
-      )
-
+    this.authStatus$ = this.getAuthStatus$()
     this.userCredential$ = this.authStatus$.pipe(
       mergeMap(async (status) => {
         const customToken = status.customToken as string
@@ -56,12 +52,16 @@ export class AuthService {
         return userCredential ? true : false
       })
     )
-    this.isLoggedIn$ = merge(isUserCredentialExits$, this.authSubjectObservable$)
+    this.isLoggedIn$ = merge(
+      isUserCredentialExits$,
+      this.authSubjectObservable$
+    )
 
-    this.userCredential$.subscribe(async (userCredential) => {
-      this.idToken = await userCredential?.user.getIdToken()
-      this.userName = userCredential?.user.displayName
-    })
+    this.userCredential$
+      .subscribe(async (userCredential) => {
+        this.idToken = await userCredential?.user.getIdToken()
+        this.userName = userCredential?.user.displayName
+      })
   }
 
   get getIdToken() {
@@ -70,6 +70,21 @@ export class AuthService {
 
   get getUserName() {
     return this.userName
+  }
+
+  public getAuthStatus$(): Observable<AuthStatus> {
+    return this.http
+      .get(`${environment.identityServiceURL}/status`, {
+        withCredentials: true,
+      })
+      .pipe(
+        map((response: any) => {
+          const status = response.status === 'true' ? true : false
+          const customToken = response.customToken
+          return { status, customToken }
+        }),
+        shareReplay(1)
+      )
   }
 
   public doLogOut() {

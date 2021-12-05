@@ -6,6 +6,7 @@
     "start": "npm run write-env && ng serve --host 0.0.0.0 --live-reload",
     "start:local": "ng serve --host 0.0.0.0 --live-reload --configuration local",
     "build": "npm run write-env && ng build",
+    "buildDev": "npm run write-env && ng build --configuration local",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
