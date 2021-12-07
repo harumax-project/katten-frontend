@@ -4,8 +4,7 @@ services:
   katten-frontend:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.local
     ports:
-      - "4200:4200"
-      - ./src:/app/src
+      - "4200:8080"
     tty: true
