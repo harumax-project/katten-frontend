@@ -13,7 +13,7 @@ export class AuthComponent implements OnInit {
   public authStatus$!: Observable<boolean>
   public loggedIn$!: Observable<boolean>
   public id!: string | null | undefined
-  public identityServiceURL = `${environment.identityServiceURL}/login`
+  public identityServiceURL = `${environment.identityServiceURL}/auth/login`
   public userName!: string | null | undefined
 
   constructor(private authService: AuthService, private router: Router) {}

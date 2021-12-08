@@ -7,7 +7,7 @@ import { dynamic } from './dynamic'
 export const environment = {
   production: false,
   environment: 'local',
-  identityServiceURL: 'http://localhost:3000/auth',
+  identityServiceURL: 'http://localhost:3000',
   dynamic,
 }
 

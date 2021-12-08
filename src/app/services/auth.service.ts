@@ -74,7 +74,7 @@ export class AuthService {
 
   public getAuthStatus$(): Observable<AuthStatus> {
     return this.http
-      .get(`${environment.identityServiceURL}/status`, {
+      .get(`${environment.identityServiceURL}/auth/status`, {
         withCredentials: true,
       })
       .pipe(
@@ -90,7 +90,7 @@ export class AuthService {
   public doLogOut() {
     return new Promise((resolve, reject) => {
       this.http
-        .delete(`${environment.identityServiceURL}/logout`, {
+        .delete(`${environment.identityServiceURL}/auth/logout`, {
           withCredentials: true,
         })
         .subscribe(
